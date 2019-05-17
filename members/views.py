@@ -9,7 +9,8 @@ from .models import Member
 
 class IndexView(generic.ListView):
     template_name = 'members/index.html'
-    context_object_name = 'all_active_member_list'
+    context_object_name = 'active_member_list'
 
     def get_queryset(self):
         # filter of is_active=True
+        return Member.objects.filter(is_active=True)
